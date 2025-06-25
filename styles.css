@@ -1,15 +1,9 @@
-/* CSS BY YOUR CHEYENNE BRAYDEN */
+/* CSS BY CHEYENNE BRAYDEN */
 
-/* IMPORTED FONTS*/
+/* IMPORTED FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /* CSS RESET */
-/* http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain) */
-
-
-
 html,
 body,
 div,
@@ -83,8 +77,6 @@ header,
 hgroup,
 menu,
 nav,
-output,
-ruby,
 section,
 summary,
 time,
@@ -99,7 +91,6 @@ video {
     vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -128,10 +119,10 @@ q {
     quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
     content: '';
     content: none;
 }
@@ -144,52 +135,30 @@ table {
 /* ROOT VARIABLES */
 :root {
     --blue: #007BFF;
-    --red: #FF4500;
-    --white: #EAEAEA;
-    --black: #000000;
-    --charcoal: #333333;
-    --font: "Inter", sans-serif;
+    --white: #ffffff;
+    --light-gray: #f0f0f0;
+    --black: #000;
+    --charcoal: #333;
+    --font: 'Inter', sans-serif;
+    --section-bg: var(--white);
 }
 
-/* GLOBAL STYLES (MOBILE FIRST (SMALL) */
-
+/* GLOBAL STYLES (mobile first/small) */
 body {
     font-family: var(--font);
-    background: var(--black);
-    color: var(--white);
+    color: var(--charcoal);
+    background: var(--white);
 }
 
-h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 1rem 0;
-    position: relative;
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 1.5rem 0 1rem;
-}
-
-h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 1rem 0 0.5rem;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+section {
+    background-color: var(--section-bg);
     padding: 1rem 0;
 }
 
-nav a {
-    color: var(--blue);
-    font-weight: 600;
-    text-decoration: none;
-    margin-left: 1.5rem;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
@@ -199,198 +168,261 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem 0;
+    color: var(--white);
     text-align: center;
-    padding: 1rem;
 }
 
-header h2 {
-    color: var(--white);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--black);
+    border-bottom: 5px solid var(--blue);
+    z-index: 1000;
 }
 
-header p {
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
-}
-
-header button {
-    background: var(--blue);
-    color: var(--white);
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-#bar-chart .bar {
-    background: var(--charcoal);
-}
-
-/* Logo before h1 */
-h1::before {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.5rem;
-    width: 2rem;
-    height: 2rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
-}
-
-/* Offer cards */
-.offer-card {
-    background: var(--blue);
-    color: var(--white);
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-#results {
+.nav-wrapper .container {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
-    padding: 2rem 0;
-    background: var(--blue);
-    color: var(--white);
+    padding-top: 1rem;
 }
 
-.results-table {
-    background: var(--black);
-    padding: 1rem;
-    border-radius: 10px;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    border: none;
-}
-
-form button {
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-}
-
-footer {
-    padding: 1rem 0;
-    text-align: center;
-    font-size: 0.85rem;
-}
-
-/* MEDIA QUERY (medium) */
-@media screen and (min-width: 600px) {
-    nav {
-        justify-content: space-around;
-    }
-
-    header h2 {
-        font-size: 2.5rem;
-    }
-
-    .offer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    form {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    form textarea {
-        grid-column: span 2;
-    }
-
-    form button {
-        grid-column: span 2;
-        width: auto;
-    }
-
-    #results {
+@media (min-width: 768px) {
+    .nav-wrapper .container {
         flex-direction: row;
         justify-content: space-between;
     }
-
-    .results-table,
-    .bar-chart {
-        width: 48%;
-    }
 }
 
-/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 
-/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
-.container {
-    width: 90%;
-    max-width: 1200px;
+.logo-title {
+    display: flex;
+
+    gap: 0.5rem;
+    color: var(--blue);
+    font-weight: bold;
+
+}
+
+.logo {
+    width: 3rem;
+    height: 3rem;
+    padding-bottom: 1rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    /*vertical-align: top;*/
+}
+
+.nav-links a {
+    color: var(--blue);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /*vertical-align: top;*/
+
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.hero-text {
+    padding: 0 1rem;
+    color: var(--white);
+    max-width: 700px;
     margin: 0 auto;
 }
 
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
-    {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
+.hero-text h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--white);
+
+}
+
+.hero-text p {
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text button {
+    background: var(--blue);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.hero-text button:hover {
+    background: #0056b3;
+}
+
+.offer {
+    color: var(--black);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin: 1rem;
+    color: var(--white);
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    padding-bottom: 1REM;
+}
+
+
+
+.offer-grid {
     display: grid;
-    place-items: center;
-    text-align: center;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.offer-card {
+    background: var(--blue);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+.offer-card h3 {
+    padding-left: 1rem;
+
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.results-color {
+    background-color: var(--blue);
+    padding: 4rem 0;
+}
+
+.results {
+    color: var(--white);
+}
+
+.section-heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.results-subtext {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.results-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.results-subheading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 300px;
+    background: var(--white);
+}
+
+.results-table th,
+.results-table td {
     padding: 1rem;
-    overflow: hidden;
+    text-align: center;
+    border: 1px solid #444;
 }
 
-/* ADD FLOATING SVG LOGO BEFORE THE H1 */
-    {
-    content: "";
-
-    left: -.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+.results-table thead {
+    background: var(--black);
+    color: var(--white);
 }
 
-/* THIS ONE IS DONE FOR YOU */
-#bar-chart {
+.results-table tbody tr:nth-child(odd) {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.results-table tbody tr:nth-child(even) {
+    background-color: #444;
+    color: var(--white);
+}
+
+/* Chart Section */
+.bar-chart-section {
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bar-chart-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.bar-chart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    align-items: flex-end;
-    justify-content: space-around;
-    gap: 1rem;
+    align-items: end;
     height: 300px;
-    width: 100%;
-    max-width: 800px;
-    padding: 1rem;
-    position: relative;
+    gap: 1rem;
+    padding: 0 1rem;
 }
 
-/* ADD ON TRANSITION ON HEIGHT */
 .bar {
-    width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
     height: 0;
+    width: 30px;
+    transition: height 0.5s ease-in-out;
+    animation: stepUp 1s ease-in-out forwards;
 }
 
-/* THIS ONE IS DONE FOR YOU */
 .bar::after {
     content: attr(data-year);
     position: absolute;
-    bottom: -25px;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1rem;
@@ -398,62 +430,187 @@ footer {
     color: var(--white);
 }
 
+/* Animation */
 @keyframes stepUp {
-    0% {
+    from {
         height: 0;
     }
 
-    100% {
+    to {
         height: var(--height);
     }
 }
 
-/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
+.contact-section {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 4rem 0;
 }
 
-
-/* MEDIA QUERIES (MEDIUM) */
-
-#results {
-    grid-template-columns: 1fr 1fr;
+.contact-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-.results-container {
-    flex-direction: row;
-    justify-content: space-between;
+.contact-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
 }
 
-.results-table {
-    width: 50%;
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.bar-chart {
-    width: 50%;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
 
-/* MEDIA QUERY (large) */
-@media screen and (min-width: 1024px) {
-    nav {
-        padding: 2rem 0;
-    }
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
-    header h2 {
-        font-size: 3rem;
-    }
+.full-width {
+    width: 100%;
+}
 
+label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    padding: 0.75rem;
+    border: 2px solid var(--blue);
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+@media (min-width: 600px) {
     .offer-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .form-row {
+        flex-direction: row;
     }
 
-    .container {
-        max-width: 1200px;
+    .full-width {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .results-container {
+        flex-direction: row;
+        justify-content: space-between;
+        /*align-items: flex-start;*/
     }
 
-    form {
-        max-width: 800px;
-        margin: 0 auto;
+    .results-table,
+    .bar-chart-section {
+        width: 48%;
+    }
+
+    .form-row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .form-group {
+        width: 48%;
+        /* 50% width for each input field */
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    textarea {
+        width: 48%;
+    }
+
+    button[type="submit"] {
+        width: 48%;
+        /* Ensures submit button takes 50% of space */
+    }
+
+    button[type="submit"] {
+        background-color: var(--blue);
+        color: var(--white);
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    footer {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    footer a {
+        color: var(--blue);
+        text-decoration: underline;
     }
 }
